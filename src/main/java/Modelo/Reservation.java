@@ -38,7 +38,7 @@ public class Reservation {
 
     @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
     @JsonIgnoreProperties("reservation")
-    private Score Score;
+    private String Score;
 
     /*public Reservation() {
     }*/
