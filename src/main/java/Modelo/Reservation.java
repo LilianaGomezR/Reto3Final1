@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.OneToOne;
 
 @Entity
 @Table(name = "reservation")
@@ -20,9 +22,6 @@ public class Reservation {
     private Date startDate;
     private Date devolutionDate;
     private String status="created";
-
-
-
 
     @ManyToOne
     @JoinColumn(name = "partyroomId")
@@ -37,11 +36,11 @@ public class Reservation {
     private String score;
 
 
-    /*@OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
+    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
     @JsonIgnoreProperties("reservation")
-    private String Score;
+    private Score Score;
 
-    public Reservation() {
+    /*public Reservation() {
     }*/
 
     public Integer getIdReservation() {
